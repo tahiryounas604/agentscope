@@ -19,9 +19,8 @@ jobs:
           unzip -o agentscope.zip -d /tmp/extracted
           shopt -s dotglob
           cp -a /tmp/extracted/agentscope/. .
-          mv .github/workflows/ci.yml .github/workflows/ci.yml.txt
+          mv .github/workflows/ci.yml ci-workflow.yml.txt
           rm -f agentscope.zip
-          rm -f .github/workflows/extract.yml
       - name: Commit extracted files
         run: |
           git config user.name "github-actions[bot]"
