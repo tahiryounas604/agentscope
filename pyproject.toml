@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentscope"
+version = "0.1.0"
+description = "AI agent / MCP permission auditor — scans MCP config files for wildcards, unpinned packages, hardcoded secrets, dangerous flags and destructive tools (self-hosted, offline)."
+readme = "README.md"
+license = { text = "GPL-3.0-or-later" }
+requires-python = ">=3.11"
+authors = [{ name = "Tahir Younas — Tytechlabs" }]
+dependencies = []
+
+[project.scripts]
+agentscope = "agentscope.cli:main"
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[tool.setuptools.packages.find]
+include = ["agentscope*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
