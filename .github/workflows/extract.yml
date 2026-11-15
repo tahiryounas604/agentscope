@@ -6,7 +6,6 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
-  workflows: write
 jobs:
   extract:
     runs-on: ubuntu-latest
@@ -20,6 +19,7 @@ jobs:
           unzip -o agentscope.zip -d /tmp/extracted
           shopt -s dotglob
           cp -a /tmp/extracted/agentscope/. .
+          mv .github/workflows/ci.yml .github/workflows/ci.yml.txt
           rm -f agentscope.zip
           rm -f .github/workflows/extract.yml
       - name: Commit extracted files
